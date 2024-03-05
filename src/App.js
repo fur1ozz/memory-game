@@ -1,6 +1,8 @@
 import './App.css';
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import PageNotFound from "./pages/PageNotFound";
+import MemoryGame2 from "./components/MemoryGame2";
+import MemoryGameOrigin from "./components/MemoryGameOrigin";
 
 
 function App() {
@@ -17,7 +19,8 @@ function App() {
                 element={<PageNotFound />}
             />
             {/*Pages*/}
-
+            <Route path="/game2" element={<MemoryGame2 />} />
+            <Route path="/gameOrigin" element={<MemoryGameOrigin />} />
             {/*User processing*/}
 
           </Routes>
