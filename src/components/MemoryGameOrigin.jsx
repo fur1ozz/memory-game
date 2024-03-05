@@ -12,6 +12,7 @@ const cardImages = [
 const MemoryGameOrigin = () => {
     const [cards, setCards] = useState([])
     const [turns, setTurns] = useState(0)
+    const [selectedIds, setSelectedIds] = useState([]);
 
     const [choiceOne, setChoiceOne] = useState(null)
     const [choiceTwo, setChoiceTwo] = useState(null)
@@ -30,9 +31,28 @@ const MemoryGameOrigin = () => {
         setTurns(0)
     }
 
+    // make a check if the src id has already been pressed/selected, for not a glitch
+    // Probably make new array that saves pressed/selected choices and then also make that they got deleted from selected if theres no match
+    // const handleChoice = (card) => {
+    //     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+    // }
     const handleChoice = (card) => {
-        choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
-    }
+        if (selectedIds.includes(card.id)) {
+            return;
+        }
+
+        if (choiceOne && choiceTwo) {
+            return;
+        }
+
+        if (!choiceOne) {
+            setChoiceOne(card);
+        } else {
+            setChoiceTwo(card);
+        }
+
+        setSelectedIds([...selectedIds, card.id]);
+    };
 
     useEffect(() => {
         if (!choiceOne || !choiceTwo) {
@@ -52,6 +72,7 @@ const MemoryGameOrigin = () => {
             });
             resetTurn();
         } else {
+            setSelectedIds(selectedIds.filter((id) => ![choiceOne.id, choiceTwo.id].includes(id)));
             setTimeout(() => resetTurn(), 1000);
         }
     }, [choiceOne, choiceTwo]);
