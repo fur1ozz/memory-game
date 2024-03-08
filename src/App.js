@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom
 import PageNotFound from "./pages/PageNotFound";
 import MemoryGame2 from "./components/MemoryGame2";
 import MemoryGameOrigin from "./components/MemoryGameOrigin";
+import MemoryGameThree from "./components/MemoryGameThree";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             {/*Pages*/}
             <Route path="/game2" element={<MemoryGame2 />} />
             <Route path="/gameOrigin" element={<MemoryGameOrigin />} />
+            <Route path="/game3" element={<MemoryGameThree />} />
             {/*User processing*/}
 
           </Routes>

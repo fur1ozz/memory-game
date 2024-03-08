@@ -16,17 +16,19 @@ const MemoryGameOrigin = () => {
 
     const [choiceOne, setChoiceOne] = useState(null)
     const [choiceTwo, setChoiceTwo] = useState(null)
+    const [choiceThree, setChoiceThree] = useState(null)
 
     const [disabled, setDisabled] = useState(false)
-    
+
     const shuffleCards = () => {
-        const shuffledCards = [...cardImages, ...cardImages]
+        const shuffledCards = [...cardImages, ...cardImages, ...cardImages]
             .sort(() => Math.random() - 0.5)
             .map((card) => ({...card, id: Math.random()}))
 
         setSelectedIds([]);
         setChoiceOne(null)
         setChoiceTwo(null)
+        setChoiceThree(null)
 
         setCards(shuffledCards)
         setTurns(0)
@@ -43,27 +45,29 @@ const MemoryGameOrigin = () => {
             return;
         }
 
-        if (choiceOne && choiceTwo) {
+        if (choiceOne && choiceTwo && choiceThree) {
             return;
         }
 
         if (!choiceOne) {
             setChoiceOne(card);
-        } else {
+        } else if (!choiceTwo){
             setChoiceTwo(card);
+        } else {
+            setChoiceThree(card);
         }
 
         setSelectedIds([...selectedIds, card.id]);
     };
 
     useEffect(() => {
-        if (!choiceOne || !choiceTwo) {
+        if (!choiceOne || !choiceTwo || !choiceThree) {
             return;
         }
 
         setDisabled(true);
 
-        if (choiceOne.src === choiceTwo.src) {
+        if (choiceOne.src === choiceTwo.src && choiceTwo.src === choiceThree.src) {
             setCards(prevCards => {
                 return prevCards.map(card => {
                     if (card.src === choiceOne.src) {
@@ -74,15 +78,16 @@ const MemoryGameOrigin = () => {
             });
             resetTurn();
         } else {
-            setSelectedIds(selectedIds.filter((id) => ![choiceOne.id, choiceTwo.id].includes(id)));
+            setSelectedIds(selectedIds.filter((id) => ![choiceOne.id, choiceTwo.id, choiceThree.id].includes(id)));
             setTimeout(() => resetTurn(), 1000);
         }
-    }, [choiceOne, choiceTwo]);
+    }, [choiceOne, choiceTwo, choiceThree]);
 
 
     const resetTurn = () => {
         setChoiceOne(null)
         setChoiceTwo(null)
+        setChoiceThree(null)
         setTurns(prevTurns => prevTurns + 1)
         setDisabled(false)
     }
@@ -103,7 +108,7 @@ const MemoryGameOrigin = () => {
                         key={card.id}
                         card={card}
                         handleChoice={handleChoice}
-                        flipped={card === choiceOne || card === choiceTwo || card.matched}
+                        flipped={card === choiceOne || card === choiceTwo || card === choiceThree || card.matched}
                         disabled={disabled}
                     />
                 ))}

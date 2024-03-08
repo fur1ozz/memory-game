@@ -9,7 +9,7 @@ const SingleCard = ({ card, handleChoice, flipped, disabled }) => {
     }
 
     return (
-        <div className="relative w-[250px] h-[320px]">
+        <div className="relative w-[200px] h-[200px]">
             <div className={"absolute w-full h-full the-card " + (flipped ? "rotateY180" : "")}>
                 <div className="absolute w-full h-full bg-amber-600 rotateY180 justify-center items-center flex border-2 border-white rounded-[6px]">{card.src}</div>
                 <img
