@@ -8,9 +8,11 @@ import Header from "./components/Header";
 import ChoseGameMode from "./components/ChoseGameMode";
 import GamePage from "./pages/GamePage";
 import Levels from "./levels/Levels";
-import MainLevels from "./levels/MainLevels";
-import TimeTrial from "./levels/TimeTrial";
-import MainLevelsGame3 from "./levels/MainLevelsGame3";
+import MainAndTimeLevels from "./levels/MainAndTimeLevels";
+import Login from "./user/Login";
+import HomePage from "./pages/HomePage";
+import TheGame from "./levels/TheGame";
+import Register from "./user/Register";
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
                 path="*"
                 element={<PageNotFound />}
             />
+            <Route path="/home" element={<HomePage />} />
             {/*Pages*/}
             <Route path="/game2" element={<MemoryGame2 />} />
             <Route path="/gameOrigin" element={<MemoryGameOrigin />} />
@@ -36,11 +39,14 @@ function App() {
             <Route path="/game" element={<GamePage />} />
             {/*Levels*/}
             <Route path="/levels" element={<Levels />} />
-            <Route path="/levels/main" element={<MainLevels />} />
-            <Route path="/levels/main/level" element={<MainLevelsGame3 />} />
+            <Route path="/levels/main" element={<MainAndTimeLevels type="main" />} />
+            <Route path="/levels/main/level" element={<TheGame timeTrial={false} />} />
 
-            <Route path="/levels/time-trial" element={<TimeTrial />} />
+            <Route path="/levels/time-trial" element={<MainAndTimeLevels type="time" />} />
+            <Route path="/levels/time-trial/level" element={<TheGame timeTrial={true}/>} />
             {/*User processing*/}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
           </Routes>
         </div>

@@ -59,14 +59,17 @@ function Header2(){
                         >
                             <ul className="flex flex-col mt-4 font-normal lg:flex-row lg:space-x-8 lg:mt-0">
                                 <li>
-                                    <Link to="/" className={`block py-2 pr-4 pl-3 lg:bg-transparent lg:p-0 border-b border-gray-100 dark:border-gray-700 lg:border-0 ${location.pathname === '/home' ? 'bg-primary-700 lg:text-primary-700 text-white dark:text-white rounded' : 'text-gray-700 dark:text-gray-400'}`}>Home</Link>
+                                    <Link to="/" className={`transition ease-in block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ${location.pathname === '/home' ? 'text-primary' : 'text-text'}`}>Home</Link>
                                 </li>
 
                                 <li>
-                                    <a href="/Levels" className="transition ease-in block py-2 pr-4 pl-3 text-text border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Levels</a>
+                                    <Link to="/levels" className={`transition ease-in block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ${location.pathname === '/levels' ? 'text-primary' : 'text-text'}`}>Levels</Link>
                                 </li>
                                 <li>
                                     <a href="#" className="transition ease-in block py-2 pr-4 pl-3 text-text border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="#" className={`transition ease-in block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ${location.pathname === '/leaderboards' ? 'text-primary' : 'text-text'}`}>Leaderboard</a>
                                 </li>
                                 <li>
                                     <a href="#" className="transition ease-in block py-2 pr-4 pl-3 text-text border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Settings</a>
