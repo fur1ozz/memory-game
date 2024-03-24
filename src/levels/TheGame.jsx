@@ -3,14 +3,14 @@ import SingleCard from "../components/SingleCard";
 import matchedSound from '../sounds/sound1.mp3';
 import cardImages from '../level-utils/CardImages';
 import {useLocation} from "react-router-dom";
-
-const choiceCount = 2;
-const matchCount = 2;
+import UseLevelData from "../utils/UseLevelData";
 
 const TheGame = ({ timeTrial }) => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const level = queryParams.get('level');
+
+    const { choiceCount, matchCount } = UseLevelData(timeTrial, level);
 
     const [cards, setCards] = useState([]);
     const [selectedIds, setSelectedIds] = useState([]);
@@ -124,7 +124,7 @@ const TheGame = ({ timeTrial }) => {
 
     useEffect(() => {
         shuffleCards();
-    }, []);
+    }, [choiceCount, matchCount]);
 
     return (
         <div className="mt-[70px] max-h-screen w-full">

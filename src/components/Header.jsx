@@ -2,7 +2,7 @@ import {Link, useLocation} from "react-router-dom";
 import {useDarkMode} from "../utils/HeaderUtils";
 import React, {useState} from "react";
 
-function Header2(){
+function Header(){
     const [isDarkMode, toggleDarkMode] = useDarkMode();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
@@ -17,7 +17,7 @@ function Header2(){
     return(
         <>
             <header className="absolute z-10 w-full border-b-[1px] dark:border-[#fff]/10 border-[#000]/10">
-                <nav className="bg-background border-gray-200 px-4 lg:px-6 py-2.5 ">
+                <nav className="bg-white dark:bg-black border-gray-200 px-4 lg:px-6 py-2.5 bg-opacity-30 dark:bg-opacity-30">
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                         <a className="flex items-center">
                             <span className="self-center text-xl font-semibold whitespace-nowrap text-text">FlipMeha</span>
@@ -72,7 +72,7 @@ function Header2(){
                                     <a href="#" className={`transition ease-in block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ${location.pathname === '/leaderboards' ? 'text-primary' : 'text-text'}`}>Leaderboard</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="transition ease-in block py-2 pr-4 pl-3 text-text border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Settings</a>
+                                    <button className="transition ease-in block py-2 pr-4 pl-3 text-text border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary lg:p-0 lg:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Settings</button>
                                 </li>
                             </ul>
                         </div>
@@ -82,4 +82,4 @@ function Header2(){
         </>
     );
 }
-export default Header2;
+export default Header;

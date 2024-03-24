@@ -6,7 +6,9 @@ const PageWithHeader = ({ children }) => {
         <>
             <Header />
             <section
-                className="bg-background bg-cover bg-center bg-fixed">
+                className="bg-background bg-cover bg-center bg-fixed"
+                style={{ backgroundImage: 'url("/img/page-bg/page-bg-2.jpg")' }}
+            >
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen lg:py-0">
                     {children}
                 </div>

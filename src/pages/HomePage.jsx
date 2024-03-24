@@ -8,7 +8,7 @@ const HomePage = () => {
     return (
         <>
             <header className="absolute z-10 w-full border-b-[1px] border-[#fff]/10">
-                <nav className="bg-[#040606] border-gray-200 px-4 lg:px-6 py-2.5 bg-opacity-80">
+                <nav className="bg-[#040606] border-gray-200 px-4 lg:px-6 py-2.5 bg-opacity-30">
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                         <a className="flex items-center">
                             <span className="self-center text-xl font-semibold whitespace-nowrap text-white">FlipMeha</span>
@@ -26,7 +26,7 @@ const HomePage = () => {
             </header>
             <section
                 className="bg-background bg-cover bg-center bg-fixed"
-                style={{backgroundImage: 'url("/img/others/homeBg1.jpg")'}}
+                style={{backgroundImage: 'url("/img/page-bg/page-bg-4.jpg")'}}
             >
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen lg:py-0">
                     <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
